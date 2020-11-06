@@ -1,34 +1,27 @@
 #include <stdio.h>
 #include <stdlib.h>
+int swap(int *a, int *b);
+
 int main()
 {
-	char num[5];
-	int i, j;
-	
-	printf("Nhap 5 so bat ky");
-	gets(num[5]);
-	
-	j=num[5];
-	int reverse;
-	printf("\n 5 so nguoc lai la:%s ",num[5]);
-
-	
+	int i,j;
+    int arr[5];
+	printf("Nhap vao 5 so ngau nhien ");
+	for(i=1;i<=5;i++)
+	{
+		scanf("%d",&arr[i]);
+	}
+	printf("%d", arr[i]);
+    swap(&arr[j],&arr[i]);
+    printf("day so duoc dao nguoc lai la: %d,%d,%d,%d,%d",arr[5],arr[4],arr[3],arr[2],j);
+    getch();
+    return 0;
 }
- void reverse(int num[5])
+ int swap(int *a, int *b)
  {
- 	char i,j;
- 	i = num[5];
- 	num[i]=num[j-i];
- 	num[j-i]=i;
- 	
- 	if(i==j)
- 	{
- 		return;
-	 }
- 	reverse;
- 	
- }
- 
- 
- 
+ 	int teamp;
+ 	teamp = *a;
+ 	*a=*b;
+ 	*b=teamp;
+}
  
