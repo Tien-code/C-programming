@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        input:required{
+            outline: 1px red solid;
+            color: green;
+        }
+        input:required:valid{
+            background-size: 10px 10px;
+            background-position: right top;
+            background-repeat:no-repeat ;
+        }
+        input:required:invalid{
+            background-size: 10px 10px ;
+            background-position: right top;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body>
+<form method="get" action="try.php" >
+    Name: <input type="text"name="name"required="true"/><br/>
+    Email:<input type="email"name="name"required="true"/><br/>
+    <input type="submit" value="submit"/>
+<br>
+    <label> Select the mode of payment: </label>
+    <input type=”text” name=”payment” list=”paymentlist” />
+    <datalist id=”paymentlist”>
+        <option value=”Cash-on-Delivery”>
+        <option value=”Net-Banking”>
+        <option value=”Credit-Card”>
+        <option value=”Debit-Card”>
+        <option value=”e-Gift-Voucher”>
+    </datalist>
+    <input type="submit" value="submit"/>
+
+</form>
+<form oninput="x.value=parseInt(type.value)*parseInt(duration.value)" >
+<label>Membership Type:</label>
+< select name=”type”>
+    <option value=”400”>Gold - $400< /option>
+    <option value=”500”>Silver - $500< /option>
+    <option value=”600”>Platinum - $600< /option>
+</select>
+<label>Duration [years]:</label>
+<input type=”number” value=”0” name=”duration”
+       min=”1”max=”5” step=”1”/>
+<label> Annual Payment Fees: $.</label>
+<output name=”x” for=”type-duration”></output>
+</body>
+</html>
