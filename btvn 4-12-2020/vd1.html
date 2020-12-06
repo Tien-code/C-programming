@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Forms</title>
+    <style type="text/css">
+        select.one{
+            border: 2px solid #3a89d7;
+           background: #FFFFFF;
+        }
+    </style>
+</head>
+<body>
+<form action="http://www.example.com/subscribe.php">
+    <fieldset>
+        <legend>Your Details:</legend>
+        <label>Name:<input type="text"name="name"></label><br/>
+        <label>Email:<input type="text"name="email"></label><br/>
+    </fieldset>
+    <br>
+    <fieldset>
+        <legend>Your Review:</legend>
+        <p>How did you hear about us?
+            <select class="one" name="google" size="1" multiple="multiple">
+                <option value="google">Google</option>
+                <option value="friend">Friend</option>
+                <option value="Advent">Advent</option>
+                <option value="Other">Other</option>
+            </select>
+        </p>
+        <p>Would you visit again?
+            <br>
+            <input type="radio" name="genre" value="Yes"/>Yes
+            <input type="radio" name="genre" value="No"/>No
+            <input type="radio" name="genre" value="Maybe"/>Maybe
+        </p>
+        <p>Comments: </p>
+        <textarea name="comments" cols="30" rows="3"
+                  placeholder="Enter your comment...">
+        </textarea>
+            <br>
+            <input type="checkbox" name="Submit review" value="Submit review" checked />
+        Sign me for email updates
+        <br>
+        <input type="submit" name="Submit review" value="Submit review"/>
+    </fieldset>
+</form>
+</body>
+</html>
