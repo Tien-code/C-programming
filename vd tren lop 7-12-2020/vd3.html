@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    table{
+        border: blanchedalmond
+    }
+    #lineone{
+        background-color: cornflowerblue;
+        color: white;
+    }
+    .pop{
+        background-color: #C8C8C8;
+        opacity: 1;
+    }
+    .rick{
+        background-color: #C8C8C8;
+        opacity: 0.7;
+    }
+    #abc{
+        margin-left: 200px;
+        color: white;
+        background-color: #15bb8a;
+    }
+    #login{
+        width: 300px;
+        height: 300px;
+        padding: 10px;
+    }
+    #a{padding: 10px;
+    }
+    .xyz{
+        padding: 10px;
+    }
+</style>
+<body>
+<div>
+    <h1>Poetry Workshop</h1>
+    <p>We will be conducting a number of poetry workshops and symposiums throughout the year.<br>
+    Please note that the following events are free to members:</p>
+</div>
+<div>
+    <ul>
+        <li>A Poetic Perspective</li>
+        <li>Walt Whitman at War</li>
+        <li>Found Poems and Outsider Poetry</li>
+    </ul>
+</div>
+<div>
+    <table>
+        <tr id="lineone">
+            <th></th>
+            <th>New York</th>
+            <th>Chicago</th>
+            <th>San Francisco</th>
+        </tr>
+        <tr class="pop">
+            <th>A Poetic Perspective</th>
+            <td>Sat,4 Feb 2021<br>11am-2pm</td>
+            <td>Sat 3 Mar 2021<br>11am-2pm</td>
+            <td>Sat,17 Mar 2021<br>11am-2pm</td>
+        </tr>
+        <tr class="rick">
+            <th>Walt Whitman at War</th>
+            <td>Sat,7 Apr 2021<br>11am-1pm</td>
+            <td>Sat,5 May 2021<br>11am-1pm</td>
+            <td>Sat,19 May 2021<br>11am-1pm</td>
+        </tr>
+        <tr class="pop">
+            <th>Found Poems and Outsider Poetry</th>
+            <td>Sat,9 Jun 2021<br>11am-2pm</td>
+            <td>Sat,7 Jul 2021<br>11am-2pm</td>
+            <td>Sat,21 Jul 2021<br>11am-2pm</td>
+        </tr>
+        <tr class="rick">
+            <th>Natural Death:An Exploration</th>
+            <td>Sat,4 Aug 2021<br>11am-4pm</td>
+            <td>Sat,8 Sep 2021<br>11am-4pm</td>
+            <td>Sat,15 Sep 2021<br>11am-4pm</td>
+        </tr>
+    </table>
+</div>
+<div id="login">
+    <form action="http://www.example.com/subscribe.php">
+    <fieldset>
+        <legend>Register your interest</legend>
+        <label class="xyz">Your name:<input type="text" name="name"> </label><br>
+        <label class="xyz" >Your email:<input type="text" name="email"></label><br>
+        <label class="xyz">Your closest center:
+            <select name="instruments" size="1" multiple="multiple">
+                <option value="New york" selected="selected">New york</option>
+                <option value="drums">Drums</option>
+                <option value="keyboard">keyboard</option>
+                <option value="bass">Bass</option>
+            </select>
+        </label><br>
+        <label class="xyz"> Are you a member?
+            <input type="radio" name="Yes" value="Yes" />Yes
+            <input type="radio" name="No" value="No"/>No
+        </label>
+    </fieldset>
+    </form>
+            <div id="a">
+            <input id="abc" type="submit" name="Register" value="Register"/>
+            </div>
+</div>
+</body>
+</html>
