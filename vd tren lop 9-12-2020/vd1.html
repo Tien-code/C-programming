@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: sans-serif;
+    background-image: url("anh/dark-wood.jpg");
+}
+.container{
+    width: 940px;
+    margin: 0 auto;
+    height: 80px;
+}
+#header{
+    width:790px;
+    height: 60px;
+    margin-left: 300px;
+
+}
+.menu{
+    float: left;
+    width: 940px;
+    height: 50px;
+    background: #C8C8C8;
+}
+ul{
+
+    padding: 0;
+    margin-left: 5px;
+    list-style-type: none;
+}
+ul>li{
+    display: inline-block;
+    height: 80px;
+    line-height: 80px;
+    margin: 10px;
+}
+a{
+    text-decoration: none;
+    height: 50px;
+    display: block;
+    line-height: 40px;
+    color: white;
+
+}
+li:first-child>a{
+    color: black;
+}
+#anh1{
+    text-align: center;
+}
+.japan{
+    background: white;
+
+    border-style: ridge;
+    width: 300px;
+}
+.master{
+    background: white;
+
+    border-style: ridge;
+    width: 300px;
+}
+#kitchen{
+    background: white;
+    width: 940px;
+    margin-left: 300px;
+}
+</style>
+<body>
+<div id="anh1">
+    <img src="anh/header.jpg" height="130" width="940"/>
+</div>
+    <div id="header">
+        <div class="container">
+            <div class="menu">
+                <ul>
+                    <li><a href="#">home</a></li>
+                    <li><a href="">news</a></li>
+                    <li><a href="">archives</a></li>
+                    <li><a href="">about</a></li>
+                    <li><a href="">contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="kitchen">
+        <div class="japan">
+            <figure><img src="anh/bok-choi.jpg" height="190" width="290"/>
+            <figcaption>Bok Choi</figcaption></figure>
+        </div>
+        <div class="master">
+                 <figure><img src="anh/teriyaki.jpg" height="190" width="290"/>
+                     <figcaption>Teriyaki Sauce</figcaption></figure>
+        </div>
+
+    </div>
+</body>
+</html>
