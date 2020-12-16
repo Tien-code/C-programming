@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-with, intital-scale-1">
+
+    <title>Title</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+</head>
+<body>
+<script src="https://bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function (){
+        $('#cbShowPassword').click(function (){
+            $('#txtPassword').attr('type',$(this).is(':checked')? 'text' : 'password');
+        });
+        $('input[name="language"]').click(function (){
+            getSelectedCheckBoxes('language');
+        });
+        var getSelectedCheckBoxes=function (groupName){
+            var result =$('input[name="'+groupName +  '"]:checked');
+            if (result.length>0){
+                var resultString =  result.length + "language (s) checked<br/>";
+                result.each(function (){
+                    resultString +=$(this).val()+"<br/>";
+
+                });
+                $<'#div' + groupName).html(resultString);
+
+    }
+    else{
+        $('#div' + groupName).html("No checkbox checked");
+    }
+    };
+    });
+    function validateEmail(){
+        var emailTextBox=document.getElementById("email");
+        var email=emailTextBox.value;
+        var emailRegEx= /^(([^<>\\.,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)|(\n+\n))@((\[[0-9]{1,3}\.[0-9] {1,3};
+        emailTextBox.style.color="white";
+        if(emailRegEx.test(email)){
+            emailTextBox.style.backgroundColor="green";
+        }
+        else {
+            emailTextBox.style.backgroundColor="red";
+        }
+    }
+
+</script>
+<div class="container">
+    <h2>Login Page</h2>
+    <form>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" class="form-control" placeholder="Enter email" onkeyup="validateEmail()">
+        </div>
+        <div class="form-group">
+            <label for="pwd">PassWord:</label>
+            <input type="password" id="pwd" class="form-control" placeholder="Enter password">
+        </div>
+        <div class="checkbox">
+            <label><input type="checkbox" id="cbShowPassword">Show Password</label>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-default">Submit</button>
+        </div>
+        <div class="form-group">
+            Know Languages:
+            <div class="checkbox">
+                <label><input type="checkbox" name="languages" value="English"/>English</label>
+                <label><input type="checkbox" name ="languages" value="German"/>German</label>
+            </div>
+            Selected Languages:<br/>
+            <label><div id = "divlanguage"></div></label>
+            <br/>
+        </div>
+    </form>
+</div>
+</body>
+</html>
