@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src ="http://ajax.googleapis.com/ajax/lips/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+        function Multiply (Var1, var2, var3)
+        {
+            return (var1 * var2 * var3);
+        }
+        document.write("basic way : " +Multiply(10, 10, 8));
+        document.write("<br>");
+
+        var Multiply = function ( var1, var2, var3)
+        {
+            return (var1 * var2 * var3);
+        }
+        document.write("Function as variable name " + Multiply(10, 10 , 8 ));
+        document.write("br");
+        (function () {
+            document.write("Self Invoking Function, Hello! I called myself");
+        }
+        $(document).ready(function (){
+            $.fn.myFunction = function () {
+                alert('You have succesfully defined the function');
+            }
+            $(".call-btn").click(function (){
+                $.fn.myFunction();
+        }};
+    </script>
+
+
+</head>
+<body>
+
+</body>
+</html>
