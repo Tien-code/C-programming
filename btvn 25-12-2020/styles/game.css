@@ -1,0 +1,44 @@
+#top{
+    text-align: center;
+    color: limegreen;
+}
+
+#btnRandom {
+    margin-right:auto;
+}
+#btnReset{
+    margin-right: auto;
+}
+#container{
+    text-align: center;
+}
+.lightning{
+    overflow: hidden;
+    width: 100%;
+
+}
+
+
+#pic_box{
+    margin-left:17%;
+    padding: 0;
+    width: 366px;
+    overflow: hidden;
+}
+
+#head{
+    margin-top: 23%;
+ }
+#eyes{
+    margin-top: -4px;
+    bottom: 0;
+}
+#nose{
+    margin-top:-3.7px;
+    bottom: 0;
+ }
+#mouth{
+    margin-top: -3.6px;
+    bottom: 0;
+}
+
