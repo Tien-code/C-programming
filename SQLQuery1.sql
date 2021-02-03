@@ -1,89 +1,140 @@
-create database BookLibrary
+create database task9
 go
-use BookLibrary
+use task9
 go
-create table Book(
-BookCode int ,
-BookTitle varchar(100) NOT NULL,
-Author varchar(50) NOT NULL,
-Edition int ,
-BookPrice money,
-Copies int,
-constraint BookCode PRIMARY KEY(BookCode)
+
+create table Toys
+(
+ProductCode varchar(5) Primary Key,
+name varchar(30),
+Category varchar(30),
+Manufacturer varchar(40),
+AgeRange varchar(15),
+UnitPrice money,
+Netweight int,
+QtyOnHand int
 )
 go
-INSERT INTO Book VALUES (11,'TOAN','tien',10, 20, 50);
-	INSERT INTO Book VALUES (12,'VAN','hoa',11, 30, 60);
-	INSERT INTO Book VALUES (13,'LS','HOANG',12, 40, 70);
-	INSERT INTO Book VALUES (14,'VL','NGoc',13, 50, 80);
-	INSERT INTO Book VALUES (15,'HOA','PHUC',14, 60, 90);
-	INSERT INTO Book VALUES (16,'SINH','CHUNG',15,70, 100);
-	GO
 
-	SELECT * FROM Book
-	GO
+INSERT INTO TOYS VALUES ('TA012','Barbie Fashionistas Doll 2','Doll','ABC COMPANY','3-9',10,125,50),
+						 ('TX125','LEGO Star Wars','LEGO','LEGO COMPANY','3-12',25,400,30),
+						 ('TE025','Pokemon Sword Shield 5','CARD','POKEMON COMPANY','6-12',30,325,85),
+						 ('TW325','Step2 Timeless Trends Kitchen','KITCHEN','STEP COMPANY','3-12',125,1200,56),
+						 ('XR025','Kid Connection Juinor Doctor','DOCTOR','STEP COMPANY','3-12',66,400,38),
+						 ('MT125','CAR RACING','RACING CONTROLLER','LEGO COMPANY','3-12',25,400,96),
+						 ('RT325','UNO','CARD ','ABC COMPANY','6-18',6,350,80),
+						 ('AM032','TEDDY BEAR','STUFFED ANIMAL','TOY COMPANY','2-12',600,356,120),
+						 ('RF025','LEGO AVENGERS','LEGO','LEGO COMPANY','3-12',65,362,80),
+						 ('OP256','LEGO CREATOR','LEGO','LEGO COMPANY','3-12',25,129,52),
+						 ('PL632','Barbie Fashionistas Doll 3','Doll','ABC COMPANY','3-9',15,156,140),
+						 ('KL023','SHIP RACING','RACING CONTROLLER','TOY COMPANY','6-12',852,652,75),
+						 ('IO025','LEGO Star Wars2','LEGO','LEGO COMPANY','3-12',365,458,65),
+						 ('KI236','LEGO Star Wars3','LEGO','LEGO COMPANY','3-12',925,463,35),
+						 ('ML559','LEGO Star Wars4','LEGO','LEGO COMPANY','3-12',525,856,46)
 
-create table Member(
-MemberCode int,
-Name varchar(50) NOT NULL,
-Address varchar(100) NOT NULL,
-PhoneNumber int,
-constraint MemberCode PRIMARY KEY(MemberCode)
-)
+
 go
-INSERT INTO Member VALUES (1, 'Tien', 'HANOI', 0344047379);
-	INSERT INTO Member VALUES (2, 'HOA', 'HANOI1', 0345047379);
-	INSERT INTO Member VALUES (3, 'HIEU', 'HANOI2', 0346047379);
-	INSERT INTO Member VALUES (4, 'Ngoc', 'HANOI3', 0347047379);
-	GO
 
-	SELECT * FROM Member
-	GO
-
-create table IssueDetails(
-BookCode int, 
-MemberCode int, 
-IssueDate datetime, 
-ReturnDate datetime,
-CONSTRAINT fk FOREIGN KEY (BookCode) REFERENCES Book(BookCode),
-CONSTRAINT ak FOREIGN KEY (BookCode) REFERENCES Member(MemberCode)
-)
+create procedure HeavyToys
+as 
+select * from toys
+where Netweight >500
 go
-INSERT INTO IssueDetails VALUES(11, 1, 11,32);
-	INSERT INTO IssueDetails VALUES(12, 2, 12,54);
-	INSERT INTO IssueDetails VALUES(13, 3, 13,68);
-	INSERT INTO IssueDetails VALUES(14, 4, 14,89);
 
-	GO 
+create procedure PriceIncreasecho
+as 
+select * from toys
+update toys
+set  UnitPrice = UnitPrice + 10
+go
 
-alter table IssueDetails
-drop CONSTRAINT fk,
-CONSTRAINT ak
+create procedure QtyOnHand
+as 
+select * from toys
+update toys
+set QtyOnHand = QtyOnHand - 5
+go
 
-alter table Member
-drop constraint MemberCode
+exec SP_helptext 'HeavyToys'
+go
 
-alter table Book
-drop constraint BookCode
+exec SP_helptext 'PriceIncrease'
+go
 
-alter table IssueDetails
-add constraint MemberCode PRIMARY KEY(MemberCode),
-constraint PhoneNumber PRIMARY KEY(PhoneNumber)
+exec SP_helptext 'QtyOnHand'
+go
 
-alter table Book
-add constraint BookCode PRIMARY KEY (BookCode),
-constraint BookPrice CHECK (BookPrice <200 and BookPrice>0)
+select OBJECT_DEFINITION ( OBJECT_ID('HeavyToys'))
+go
 
-alter table IssueDetails
-add CONSTRAINT fk FOREIGN KEY (BookCode) REFERENCES Book(BookCode),
-CONSTRAINT ak FOREIGN KEY (BookCode) REFERENCES Member(MemberCode)
+select OBJECT_DEFINITION ( OBJECT_ID('PriceIncrease'))
+go
 
-alter table IssueDetails
-alter column  MemberCode int NOT NULL
+select OBJECT_DEFINITION ( OBJECT_ID('QtyOnHand'))
+go
 
-alter table IssueDetails
-alter column  BookCode int NOT NULL
 
-alter table IssueDetails
-add constraint pk primary key( BookCode, MemberCode)
+SELECT definition FROM sys.sql_modules WHERE object_id = OBJECT_ID('HeavyToys')
+go
 
+SELECT definition FROM sys.sql_modules WHERE object_id = OBJECT_ID('PriceIncrease')
+go
+
+SELECT definition FROM sys.sql_modules WHERE object_id = OBJECT_ID('QtyOnHand');
+go
+
+exec sp_depends 'HeavyToys'
+go
+
+exec sp_depends 'PriceIncrease'
+go
+
+exec sp_depends 'QtyOnHand'
+go
+
+alter procedure PriceIncreace as
+update Toys Set UnitPrice = UnitPrice + 10000
+go
+select * from Toys 
+go
+
+alter procedure QtyOnHand as
+select * from Toys 
+update Toys 
+set QtyOnHand = QtyOnHand - 5
+go
+select * from Toys 
+go
+
+create Procedure SpecificPriceIncrease as
+update Toys set UnitPrice = UnitPrice + QtyOnHand
+go
+select * from Toys 
+go
+
+alter procedure SpecificPriceIncrease 
+	@number int output
+as 
+update Toys set UnitPrice = UnitPrice + QtyOnHand
+select ProductCode, Name, UnitPrice as Price, QtyOnHand from Toys
+where QtyOnHand >0
+select @number = @@ROWCOUNT
+go
+declare @num int 
+Exec SpecificPriceIncrease
+@num output
+print @num
+
+alter procedure SpecificPriceIncrease 
+@number int output
+as
+update Toys set UnitPrice = UnitPrice + QtyOnHand
+select ProductCode, Name, UnitPrice 
+as Price, QtyOnHand 
+from Toys 
+where QtyOnHand > 0
+select @number = @@ROWCOUNT
+exec HeavyToys
+
+drop procedure SpecificPriceIncrease
+go
